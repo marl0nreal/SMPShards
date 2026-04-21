@@ -1,0 +1,207 @@
+# ============================================================
+#                    SMPShards Configuration
+#                      Made by marlonreal
+# ============================================================
+
+# Which database backend to use.
+# Allowed values (case-insensitive):
+#   mysql  → remote MySQL / MariaDB server  (see mysql block below)
+#   h2     → embedded H2 file DB            (no extra config needed)
+#   sqlite → embedded SQLite file DB        (no extra config needed)
+storage-type: h2
+
+# MySQL Database
+mysql:
+  host: localhost
+  port: 3306
+  database: smpshards
+  username: root
+  password: password
+  use-ssl: false
+  table-prefix: shards_
+  pool-size: 10
+  connection-timeout: 30000
+
+# Area Settings
+area:
+  # World the area is in (must match exactly)
+  world: world
+  # Coordinates set via /shard setpos1 & setpos2
+  pos1:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  pos2:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+
+# Shard Rewards
+rewards:
+  # Seconds between each shard reward
+  interval: 60
+  # How many shards to give per interval
+  amount: 1
+  # Bonus shards (random extra) - set both to 0 to disable
+  bonus-min: 0
+  bonus-max: 0
+
+# ActionBar Settings
+actionbar:
+  # Shown while player is inside the area
+  inside: '&a✦ &7Next shard in &e{countdown}s &7| &d&l{shards} Shards'
+  # Shown when leaving the area
+  leave: '&c✦ &7You left the Shard Area!'
+  # Update interval in ticks (20 ticks = 1 second)
+  update-ticks: 20
+
+# Messages
+messages:
+  prefix: '&8[&5Shards&8] &r'
+  shard-received: '&d+{amount} &7Shard(s)! &7(Total: &d{total}&7)'
+  bonus-received: '&d+{bonus} &7Bonus Shard(s)! 🎉'
+  entered-area: '&aWelcome to the &dShard Farm&a! Stay here to earn shards.'
+  left-area: '&cYou left the &dShard Farm&c.'
+  no-area-set: '&cNo area set. Use /shard setpos1 & setpos2.'
+  pos1-set: '&aPos1 set: &e{x}, {y}, {z}'
+  pos2-set: '&aPos2 set: &e{x}, {y}, {z}'
+  no-block-in-sight: '&cNo block in sight (max. 10 blocks)!'
+  invalid-amount: '&cInvalid amount!'
+  usage-give: '&cUsage: /{label} give <player> <amount>'
+  usage-reset: '&cUsage: /{label} reset <player>'
+  reload-success: '&aPlugin successfully reloaded!'
+  no-permission: '&cYou don''t have permission to do that!'
+  player-only: '&cThis command is for players only!'
+  player-not-found: '&cPlayer not found!'
+  shards-given: '&d{amount} &7shards have been given to &e{player}&7.'
+  shards-reset: '&7The shards of &e{player} &7have been reset.'
+  your-shards: '&7Your shards: &d{shards}'
+  area-saved: '&aShard area successfully set!'
+  area-removed: '&aShard area has been removed.'
+  # Help
+  help-header: '&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+  help-title: '&6&l  SMPShards &8| &7/{label}'
+  help-footer: '&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+  help-admin-separator: '&8--- &7Admin &8---'
+  help-top: '&e/{label} top &7» Opens the leaderboard'
+  help-shards: '&e/{label} shards &7» Shows your shards'
+  help-setpos1: '&e/{label} setpos1 &7» Sets position 1'
+  help-setpos2: '&e/{label} setpos2 &7» Sets position 2'
+  help-give: '&e/{label} give <player> <amount> &7» Gives shards to a player'
+  help-reset: '&e/{label} reset <player> &7» Resets a player''s shards'
+  help-info: '&e/{label} info &7» Shows information about the area'
+  help-reload: '&e/{label} reload &7» Reloads the plugin'
+  # Info command
+  info-header: '&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+  info-title: '&6  SMPShards Area Info'
+  info-world: '&7  World: &e{world}'
+  info-set: '&7  Set: &e{set}'
+  info-pos1: '&7  Pos1: &e{x}, {y}, {z}'
+  info-pos2: '&7  Pos2: &e{x}, {y}, {z}'
+  info-footer: '&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+
+# Leaderboard GUI
+leaderboard:
+  title: Shard Leaderboard
+  size: 54 # Must be multiple of 9 (9, 18, 27, 36, 45, 54)
+  entries-per-page: 45
+  # Slot layout: which slots show player entries (0-indexed)
+  entry-slots:
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+    - 34
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    - 42
+    - 43
+  # Items
+  filler:
+    enabled: false
+    material: BLACK_STAINED_GLASS_PANE
+    name: ' '
+  border:
+    material: GRAY_STAINED_GLASS_PANE
+    name: ' '
+  prev-page:
+    slot: 48
+    material: ARROW
+    name: '&7◀ Previous Page'
+  next-page:
+    slot: 50
+    material: ARROW
+    name: '&7Next Page ▶'
+  close:
+    slot: 49
+    material: BARRIER
+    name: '&cClose'
+  info:
+    slot: 4
+    material: NETHER_STAR
+    name: '&d&lShard Leaderboard'
+    lore:
+      - '&7The most dedicated shard farmers!'
+      - ''
+      - '&7Page &e{page}&7/&e{max_page}'
+      - '&7Total entries: &e{total}'
+  # Player skull item in leaderboard
+  player-entry:
+    # {rank}, {player}, {shards} are available placeholders
+    name: '&e#{rank} &f{player}'
+    lore:
+      - '&7Shards: &6{shards}'
+  # Top 3 special colors
+  rank-colors:
+    '1': '&6&l'
+    '2': '&7&l'
+    '3': '&c&l'
+    default: '&e'
+
+# Particle Effects
+particles:
+  shard-received:
+    enabled: true
+    type: VILLAGER_HAPPY
+    count: 10
+  enter-area:
+    enabled: true
+    type: SPELL_WITCH
+    count: 20
+
+# Sound Effects
+sounds:
+  shard-received:
+    enabled: true
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    volume: 0.8
+    pitch: 1.2
+  enter-area:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_PLING
+    volume: 1.0
+    pitch: 1.0
+  leave-area:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_BASS
+    volume: 1.0
+    pitch: 0.8

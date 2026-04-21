@@ -1,0 +1,22 @@
+name: SMPShards
+version: '${project.version}'
+main: me.marlonreal.smpshards.SMPShards
+api-version: '1.21'
+authors: [ marlonreal ]
+description: A shards plugin for SMP servers
+folia-supported: true
+
+commands:
+  shard:
+    description: Main shard command
+    usage: /shard <help|setpos1|setpos2|reload|top|give|reset>
+    aliases: [shards]
+    permission: smpshards.use
+
+permissions:
+  smpshards.use:
+    description: Allows usage of basic shard commands
+    default: true
+  smpshards.admin:
+    description: Allows admin shard commands (setpos, setarea, reload, give, reset)
+    default: op
